@@ -9,7 +9,7 @@ const ProjectComponents = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:4000/showproject")
+    axios.get(`${import.meta.env.VITE_BACKEND}/showproject`)
       .then((res) => setProjects(res.data.data))
       .catch((err) => console.error(err));
   }, []);
@@ -31,7 +31,7 @@ const ProjectComponents = () => {
           >
             {/* Image */}
             <img
-              src={`http://localhost:4000/files/${project.image}`}
+              src={`${import.meta.env.VITE_BACKEND}/${project.image}`}
               alt={project.title}
               className="w-full h-48 object-cover"
             />
@@ -73,7 +73,7 @@ export const ProjectDetail = () => {
   useEffect(() => {
     const formattedTitle = decodeURIComponent(title).replace(/-/g, " ")
     axios
-      .get(`http://localhost:4000/showprojects/title/${formattedTitle}`)
+      .get(`${import.meta.env.VITE_BACKEND}/showprojects/title/${formattedTitle}`)
       .then((res) => setProject(res.data.data))
       .catch((err) => console.error(err));
   }, [title]);
@@ -87,7 +87,7 @@ export const ProjectDetail = () => {
 
         <div className="relative w-full">
           <img
-            src={`http://localhost:4000/files/${project.image}`}
+            src={`${import.meta.env.VITE_BACKEND}/files/${project.image}`}
             alt={project.title}
             className="w-full h-80 object-cover rounded-2xl shadow-md"
           />

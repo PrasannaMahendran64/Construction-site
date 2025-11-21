@@ -26,7 +26,7 @@ function ContactComponents() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/usercontact", formdata);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND}/usercontact`, formdata);
       console.log(`${response.message} (${formdata.email})`);
 
       // Reset form
