@@ -31,7 +31,7 @@ const ProjectComponents = () => {
           >
             {/* Image */}
             <img
-              src={`${import.meta.env.VITE_BACKEND}/${project.image}`}
+              src={`${import.meta.env.VITE_BACKEND}/files/${project.image}`}
               alt={project.title}
               className="w-full h-48 object-cover"
             />
