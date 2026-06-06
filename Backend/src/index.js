@@ -1,14 +1,18 @@
 const mongoose = require('mongoose')
-const server = require('./app')
+const app = require('./app')
 require('dotenv').config()
 
 const mongodb_url = process.env.MONGODB_URL
 
-const port = process.env.PORT
+const port = process.env.PORT || 4000
 
+if (!mongodb_url) {
+    console.error("MONGODB_URL is missing")
+    process.exit(1)
+}
 
 mongoose.connect(mongodb_url).then(()=>{
-    server.listen(port,()=>{
+    app.listen(port,()=>{
         console.log(`server is running ${port}`)
     })
     console.log("mongodb connected")

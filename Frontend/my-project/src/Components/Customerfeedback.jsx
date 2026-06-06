@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
-import assets from '../assets/asset'
 import asset from '../assets/asset';
 
 
@@ -59,8 +58,7 @@ const Testomonial= () => {
 
         <SwiperSlide key={index}>
                <div className='w-full h-auto bg-white p-3 flex flex-col gap-3 items-center justify-center'>
-       <img src={t.image} alt='' className='!w-[200px] !rounded-[200px] !object-cover !mx-auto !mb-4"
-'/>
+       <img src={t.image} alt='' className="!w-[200px] !rounded-[200px] !object-cover !mx-auto !mb-4"/>
        <p className="w-[800px] text-gray-600 mb-10 text-center">
        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem fuga nostrum laudantium tenetur quisquam doloremque saepe incidunt? Tempora aliquid, repudiandae dolore eaque earum odit aperiam, nostrum natus distinctio, praesentium sed.
        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga vitae officiis accusamus quos modi, iure rerum atque nostrum sed error architecto fugiat necessitatibus vel, ad quo minus incidunt, quam praesentium.

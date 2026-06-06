@@ -1,6 +1,6 @@
 // const profile = require('./profile.jpg');
 
-import interior_design from './interior design.jpg'
+import interior_design from './Interior design.jpg'
 import commercial from './commercial.jpg'
 import modern from './modern.jpg'
 import structural from './structural.jpeg'

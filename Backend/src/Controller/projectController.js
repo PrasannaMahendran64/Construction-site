@@ -7,9 +7,9 @@ const projectDetails = async (req,res)=>{
         const StoreData = new projectModel(projectData)
         await StoreData.save()
 
-        res.status(201).send({message:"data uploaded successfully"})
+        res.status(201).json({message:"data uploaded successfully"})
     } catch (error) {
-        return res.status(error.statusCode || 500).send({message: error.message ||"Error when regsitering user"})
+        return res.status(error.statusCode || 500).json({message: error.message ||"Error when regsitering user"})
     }
 }
 
@@ -17,9 +17,9 @@ const showProjectData = async (req,res)=>{
     try {
         
         const showData = await projectModel.find()
-        res.status(201).send({data:showData})
+        res.status(200).json({data:showData})
     } catch (error) {
-        res.status(500).send("error",error.message)
+        res.status(500).json({message:error.message})
     }
 }
 
@@ -27,9 +27,9 @@ const showProjectDatabyID = async (req,res)=>{
     try {
         const {id} =req.params
         const showData = await projectModel.findById(id)
-        res.status(201).send({data:showData})
+        res.status(200).json({data:showData})
     } catch (error) {
-        res.status(500).send("error",error.message)
+        res.status(500).json({message:error.message})
     }
 }
 
@@ -37,9 +37,9 @@ const showProjectDatabyTitle = async (req,res)=>{
     try {
         const {title} =req.params
         const showData = await projectModel.findOne({title})
-        res.status(201).send({data:showData})
+        res.status(200).json({data:showData})
     } catch (error) {
-        res.status(500).send("error",error.message)
+        res.status(500).json({message:error.message})
     }
 }
 
@@ -52,9 +52,9 @@ const updateProjectData = async (req,res)=>{
         }
 
         const updateProject = await projectModel.findByIdAndUpdate(id,updateData,{new:true}) 
-        res.status(201).send({date:updateProject})
+        res.status(200).json({data:updateProject})
     } catch (error) {
-         res.status(500).send("error",error.message)
+         res.status(500).json({message:error.message})
     }
 }
 

@@ -8,9 +8,9 @@ try {
     const StoreData = new UserModel(user)
     await StoreData.save()
 
-res.status(201).send("User Data Created ",{message:StoreData})
+res.status(201).json({message:"User Data Created",data:StoreData})
 } catch (error) {
-    return res.status(500).send("Error when creating user")
+    return res.status(500).json({message:"Error when creating user"})
     
 }
 }
@@ -23,9 +23,9 @@ const mailController = async(req,res)=>{
         const newUser = await UserModel({email,name,mobilenumber,location})
          await mail(email,name)
          await newUser.save()
-       return res.status(201).send("User saved and mail sent successfully",{data:newUser})
+       return res.status(201).json({message:"User saved and mail sent successfully",data:newUser})
     } catch (error) {
-         return res.status(500).send("Error when creating user")
+         return res.status(500).json({message:"Error when creating user"})
     }
 }
 
